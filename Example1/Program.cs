@@ -24,10 +24,9 @@ namespace Example1
             var userNameCache = new MyCache<string, string>(TimeSpan.FromMilliseconds(5000),  Data);
 
             Console.WriteLine("First time: " + userNameCache["UserName"]);
-            Task.Delay(10000).Wait();
-            Console.WriteLine("after 12s: " + userNameCache["UserName"]);
+            Task.Delay(6000).Wait();
+            Console.WriteLine("after : " + userNameCache["UserName"]);
 
-            //usersListCache.CleanUp();
             Console.ReadLine();
         }
     }

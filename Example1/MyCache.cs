@@ -34,13 +34,12 @@ namespace Example1
 
                 if(_cache.TryGetValue(key, out valueWithDateTime))
                 {
-                    // was it found? or expried?
-                    if (DateTimeOffset.Now - valueWithDateTime.RetreivedTime.Add(_timeout) >= _timeout)
+                    // check expried time
+                    if (DateTimeOffset.Now - valueWithDateTime.RetreivedTime >= _timeout)
                     {
                         _cache.Remove(key);
                         return default(TValue);
                     }
-                    return valueWithDateTime.Value;
                 }
                 else
                 {
